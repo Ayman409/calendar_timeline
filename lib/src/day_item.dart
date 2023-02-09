@@ -42,7 +42,7 @@ class DayItem extends StatelessWidget {
       color: activeDayColor ?? Colors.white,
       fontSize: shrink ? 14 : 20, /////
       fontWeight: FontWeight.w500,
-      height: 0.8,
+      // height: 0.8,
     );
 
     return GestureDetector(
@@ -57,7 +57,7 @@ class DayItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5),
                 )
               : BoxDecoration(
-                  color: const Color(0xFF1B81CE),
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(5),
                 ), //change color of inactive date container
           height: shrink ? 40 : 70,
@@ -66,11 +66,11 @@ class DayItem extends StatelessWidget {
           child: Column(
             children: <Widget>[
               if (isSelected) ...[
-                SizedBox(height: shrink ? 6 : 6),
+                SizedBox(height: shrink ? 6 : 8),
                 // if (!shrink) _buildDots(),
                 // SizedBox(height: shrink ? 9 : 12),
               ] else
-                SizedBox(height: shrink ? 10 : 6),
+                SizedBox(height: shrink ? 10 : 8),
               if (isSelected) ...[
                 Text(
                   shortName,
