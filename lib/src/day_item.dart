@@ -81,7 +81,7 @@ class DayItem extends StatelessWidget {
                   shortName,
                   style: TextStyle(
                     color: dayNameColor ?? activeDayColor ?? Colors.white,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w500,
                     fontSize: shrink ? 9 : 12,
                   ),
                 ),
@@ -89,8 +89,8 @@ class DayItem extends StatelessWidget {
                 Text(
                   shortName,
                   style: TextStyle(
-                    color: dayNameColor ?? activeDayColor ?? Colors.white,
-                    fontWeight: FontWeight.bold,
+                    color: dayNameColor ?? activeDayColor ?? Colors.black,
+                    fontWeight: FontWeight.w500,
                     fontSize: shrink ? 9 : 12,
                   ),
                 ),
