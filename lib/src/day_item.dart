@@ -51,22 +51,22 @@ class DayItem extends StatelessWidget {
             ? BoxDecoration(
                 color: activeDayBackgroundColor ??
                     Theme.of(context).colorScheme.secondary,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(5),
               )
             : BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(5),
               ), //change color of inactive date container
         height: shrink ? 40 : 70,
         width: shrink ? 33 : 60,
         child: Column(
           children: <Widget>[
             if (isSelected) ...[
-              SizedBox(height: shrink ? 6 : 7),
+              SizedBox(height: shrink ? 6 : 0),
               // if (!shrink) _buildDots(),
               // SizedBox(height: shrink ? 9 : 12),
             ] else
-              SizedBox(height: shrink ? 10 : 14),
+              SizedBox(height: shrink ? 10 : 0),
             Text(
               dayNumber.toString(),
               style: isSelected ? selectedStyle : textStyle,
@@ -77,7 +77,7 @@ class DayItem extends StatelessWidget {
                 style: TextStyle(
                   color: dayNameColor ?? activeDayColor ?? Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: shrink ? 9 : 14,
+                  fontSize: shrink ? 9 : 12,
                 ),
               ),
           ],
