@@ -18,6 +18,8 @@ class DayItem extends StatelessWidget {
     required this.heightOfContainer,
     required this.heighBetweenItemInContainer,
     required this.widthOfContainer,
+    this.selectedTextColor,
+    this.unSelectedTextColor,
   }) : super(key: key);
   final int dayNumber;
   final String shortName;
@@ -26,6 +28,8 @@ class DayItem extends StatelessWidget {
   final Color? dayColor;
   final Color? activeDayColor;
   final Color? activeDayBackgroundColor;
+  final Color? selectedTextColor;
+  final Color? unSelectedTextColor;
   final bool available;
   final Color? dotsColor;
   final Color? dayNameColor;
@@ -80,7 +84,7 @@ class DayItem extends StatelessWidget {
                 Text(
                   shortName,
                   style: TextStyle(
-                    color: dayNameColor ?? activeDayColor ?? Colors.white,
+                    color: selectedTextColor,
                     fontWeight: FontWeight.w500,
                     fontSize: shrink ? 9 : 12,
                   ),
@@ -89,7 +93,7 @@ class DayItem extends StatelessWidget {
                 Text(
                   shortName,
                   style: TextStyle(
-                    color: dayNameColor ?? activeDayColor ?? Colors.black,
+                    color: unSelectedTextColor,
                     fontWeight: FontWeight.w500,
                     fontSize: shrink ? 9 : 12,
                   ),
