@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 /// Creates a Widget representing the day.
 class DayItem extends StatelessWidget {
@@ -44,12 +46,12 @@ class DayItem extends StatelessWidget {
           ? dayColor ?? Theme.of(context).colorScheme.secondary
           : dayColor?.withOpacity(0.5) ??
               Theme.of(context).colorScheme.secondary.withOpacity(0.5),
-      fontSize: shrink ? 14 : 20,
+      fontSize: shrink ? 14 : 20.sp,
       fontWeight: FontWeight.normal,
     );
     final selectedStyle = TextStyle(
       color: activeDayColor ?? Colors.white,
-      fontSize: shrink ? 14 : 20, /////
+      fontSize: shrink ? 14 : 20.sp, /////
       fontWeight: FontWeight.w500,
       // height: 0.8,
     );
@@ -57,7 +59,7 @@ class DayItem extends StatelessWidget {
     return GestureDetector(
       onTap: available ? onTap as void Function()? : null,
       child: Padding(
-        padding: EdgeInsets.only(right: 10),
+        padding: const EdgeInsets.only(right: 10),
         child: Container(
           decoration: isSelected
               ? BoxDecoration(
@@ -75,18 +77,20 @@ class DayItem extends StatelessWidget {
           child: Column(
             children: <Widget>[
               if (isSelected) ...[
-                SizedBox(height: shrink ? 6 : 9),
+                SizedBox(height: shrink ? 6 : 9.h),
                 // if (!shrink) _buildDots(),
                 // SizedBox(height: shrink ? 9 : 12),
               ] else
-                SizedBox(height: shrink ? 10 : 9),
+                SizedBox(height: shrink ? 10 : 9.h),
               if (isSelected) ...[
                 Text(
                   shortName,
-                  style: TextStyle(
-                    color: selectedTextColor,
-                    fontWeight: FontWeight.w500,
-                    fontSize: shrink ? 9 : 12,
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      color: selectedTextColor,
+                      fontWeight: FontWeight.w600,
+                      fontSize: shrink ? 9 : 12.sp,
+                    ),
                   ),
                 ),
               ] else
@@ -94,8 +98,8 @@ class DayItem extends StatelessWidget {
                   shortName,
                   style: TextStyle(
                     color: unSelectedTextColor,
-                    fontWeight: FontWeight.w500,
-                    fontSize: shrink ? 9 : 12,
+                    fontWeight: FontWeight.w600,
+                    fontSize: shrink ? 9 : 12.sp,
                   ),
                 ),
               SizedBox(
@@ -103,7 +107,14 @@ class DayItem extends StatelessWidget {
               ),
               Text(
                 dayNumber.toString(),
-                style: isSelected ? selectedStyle : textStyle,
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    color: selectedTextColor,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14.sp,
+                  ),
+                ),
+                // isSelected ? selectedStyle : textStyle,
               ),
             ],
           ),
