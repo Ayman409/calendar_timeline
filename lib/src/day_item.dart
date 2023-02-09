@@ -92,7 +92,7 @@ class DayItem extends StatelessWidget {
                   style: GoogleFonts.poppins(
                     textStyle: TextStyle(
                       color: selectedTextColor,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w500,
                       fontSize: shortNameFontSize,
                     ),
                   ),
@@ -102,8 +102,8 @@ class DayItem extends StatelessWidget {
                   shortName,
                   style: GoogleFonts.poppins(
                     textStyle: TextStyle(
-                      color: selectedTextColor,
-                      fontWeight: FontWeight.w600,
+                      color: unSelectedTextColor,
+                      fontWeight: FontWeight.w500,
                       fontSize: shortNameFontSize,
                     ),
                   ),
@@ -117,7 +117,7 @@ class DayItem extends StatelessWidget {
                     ? GoogleFonts.poppins(
                         textStyle: TextStyle(
                           color: selectedTextColor,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w500,
                           fontSize: dayNumberFontSize,
                         ),
                       )
