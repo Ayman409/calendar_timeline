@@ -47,6 +47,7 @@ class DayItem extends StatelessWidget {
     return GestureDetector(
       onTap: available ? onTap as void Function()? : null,
       child: Container(
+        padding: EdgeInsets.only(right: 10),
         decoration: isSelected
             ? BoxDecoration(
                 color: activeDayBackgroundColor ??
@@ -59,18 +60,19 @@ class DayItem extends StatelessWidget {
               ), //change color of inactive date container
         height: shrink ? 40 : 70,
         width: shrink ? 33 : 60,
+        alignment: Alignment.center,
         child: Column(
           children: <Widget>[
+            Text(
+              dayNumber.toString(),
+              style: isSelected ? selectedStyle : textStyle,
+            ),
             if (isSelected) ...[
               SizedBox(height: shrink ? 6 : 0),
               // if (!shrink) _buildDots(),
               // SizedBox(height: shrink ? 9 : 12),
             ] else
               SizedBox(height: shrink ? 10 : 0),
-            Text(
-              dayNumber.toString(),
-              style: isSelected ? selectedStyle : textStyle,
-            ),
             if (isSelected)
               Text(
                 shortName,
