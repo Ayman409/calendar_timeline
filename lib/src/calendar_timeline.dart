@@ -37,6 +37,8 @@ class CalendarTimeline extends StatefulWidget {
     required this.widthOfContainer,
     this.selectedTextColor,
     this.unSelectedTextColor,
+    required this.dayNumberFontSize,
+    required this.shortNameFontSize,
   })  : assert(
           initialDate.difference(firstDate).inDays >= 0,
           'initialDate must be on or after firstDate',
@@ -77,6 +79,8 @@ class CalendarTimeline extends StatefulWidget {
   final double widthOfContainer;
   final Color? selectedTextColor;
   final Color? unSelectedTextColor;
+  final double dayNumberFontSize;
+  final double shortNameFontSize;
 
   /// If true, it will show a separate row for the years.
   /// It defaults to false
@@ -475,6 +479,8 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
                 widthOfContainer: widget.widthOfContainer,
                 selectedTextColor: widget.selectedTextColor,
                 unSelectedTextColor: widget.unSelectedTextColor,
+                dayNumberFontSize: widget.dayNumberFontSize,
+                shortNameFontSize: widget.shortNameFontSize,
               ),
               if (index == _days.length - 1)
                 // Last element to take space to do scroll to left side

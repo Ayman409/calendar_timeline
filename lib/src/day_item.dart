@@ -22,6 +22,8 @@ class DayItem extends StatelessWidget {
     required this.widthOfContainer,
     this.selectedTextColor,
     this.unSelectedTextColor,
+    required this.dayNumberFontSize,
+    required this.shortNameFontSize,
   }) : super(key: key);
   final int dayNumber;
   final String shortName;
@@ -39,6 +41,8 @@ class DayItem extends StatelessWidget {
   final double heightOfContainer;
   final double heighBetweenItemInContainer;
   final double widthOfContainer;
+  final double dayNumberFontSize;
+  final double shortNameFontSize;
 
   GestureDetector _buildDay(BuildContext context) {
     final textStyle = TextStyle(
@@ -89,17 +93,19 @@ class DayItem extends StatelessWidget {
                     textStyle: TextStyle(
                       color: selectedTextColor,
                       fontWeight: FontWeight.w600,
-                      fontSize: shrink ? 9 : 12.sp,
+                      fontSize: shortNameFontSize,
                     ),
                   ),
                 ),
               ] else
                 Text(
                   shortName,
-                  style: TextStyle(
-                    color: unSelectedTextColor,
-                    fontWeight: FontWeight.w600,
-                    fontSize: shrink ? 9 : 12.sp,
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      color: selectedTextColor,
+                      fontWeight: FontWeight.w600,
+                      fontSize: shortNameFontSize,
+                    ),
                   ),
                 ),
               SizedBox(
@@ -107,14 +113,23 @@ class DayItem extends StatelessWidget {
               ),
               Text(
                 dayNumber.toString(),
-                style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    color: selectedTextColor,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14.sp,
-                  ),
-                ),
-                // isSelected ? selectedStyle : textStyle,
+                style: isSelected
+                    ? GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          color: selectedTextColor,
+                          fontWeight: FontWeight.w600,
+                          fontSize: dayNumberFontSize,
+                        ),
+                      )
+                    : GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          color: isSelected
+                              ? selectedTextColor
+                              : unSelectedTextColor,
+                          fontWeight: FontWeight.w600,
+                          fontSize: dayNumberFontSize,
+                        ),
+                      ),
               ),
             ],
           ),
