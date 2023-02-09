@@ -34,13 +34,13 @@ class DayItem extends StatelessWidget {
           ? dayColor ?? Theme.of(context).colorScheme.secondary
           : dayColor?.withOpacity(0.5) ??
               Theme.of(context).colorScheme.secondary.withOpacity(0.5),
-      fontSize: shrink ? 14 : 32,
+      fontSize: shrink ? 14 : 20,
       fontWeight: FontWeight.normal,
     );
     final selectedStyle = TextStyle(
       color: activeDayColor ?? Colors.white,
       fontSize: shrink ? 14 : 20, /////
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.w500,
       height: 0.8,
     );
 
