@@ -55,7 +55,7 @@ class DayItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
               )
             : BoxDecoration(
-                color: Colors.white,
+                color: const Color(0xFF1B81CE),
                 borderRadius: BorderRadius.circular(5),
               ), //change color of inactive date container
         height: shrink ? 40 : 70,
@@ -73,7 +73,16 @@ class DayItem extends StatelessWidget {
               // SizedBox(height: shrink ? 9 : 12),
             ] else
               SizedBox(height: shrink ? 10 : 0),
-            if (isSelected)
+            if (isSelected) ...[
+              Text(
+                shortName,
+                style: TextStyle(
+                  color: dayNameColor ?? activeDayColor ?? Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: shrink ? 9 : 12,
+                ),
+              ),
+            ] else
               Text(
                 shortName,
                 style: TextStyle(
