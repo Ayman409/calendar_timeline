@@ -51,17 +51,20 @@ class DayItem extends StatelessWidget {
             ? BoxDecoration(
                 color: activeDayBackgroundColor ??
                     Theme.of(context).colorScheme.secondary,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(8),
               )
-            : const BoxDecoration(color: Colors.transparent),
+            : BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+              ), //change color of inactive date container
         height: shrink ? 40 : 70,
         width: shrink ? 33 : 60,
         child: Column(
           children: <Widget>[
             if (isSelected) ...[
               SizedBox(height: shrink ? 6 : 7),
-              if (!shrink) _buildDots(),
-              SizedBox(height: shrink ? 9 : 12),
+              // if (!shrink) _buildDots(),
+              // SizedBox(height: shrink ? 9 : 12),
             ] else
               SizedBox(height: shrink ? 10 : 14),
             Text(
@@ -83,21 +86,21 @@ class DayItem extends StatelessWidget {
     );
   }
 
-  Widget _buildDots() {
-    final dot = Container(
-      height: 5,
-      width: 5,
-      decoration: BoxDecoration(
-        color: dotsColor ?? activeDayColor ?? Colors.white,
-        shape: BoxShape.circle,
-      ),
-    );
+  // Widget _buildDots() {
+  //   final dot = Container(
+  //     height: 5,
+  //     width: 5,
+  //     decoration: BoxDecoration(
+  //       color: dotsColor ?? activeDayColor ?? Colors.white,
+  //       shape: BoxShape.circle,
+  //     ),
+  //   );
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [dot, dot],
-    );
-  }
+  //   return Row(
+  //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //     children: [dot, dot],
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
